@@ -1,0 +1,32 @@
+solange@DESKTOP-1VNRH0G:~$sudo systemctl start docker
+solange@DESKTOP-1VNRH0G:~$ sudo usermod -aG docker $USER
+solange@DESKTOP-1VNRH0G:~$ newgrp docker
+solange@DESKTOP-1VNRH0G:~$ minikube start
+docker  index.html  minikube-linux-amd64  pod-definition.yml
+solange@DESKTOP-1VNRH0G:~$ vi index.html
+solange@DESKTOP-1VNRH0G:~$ vi docker
+solange@DESKTOP-1VNRH0G:~$ mv docker Dockerfile
+solange@DESKTOP-1VNRH0G:~$ ls
+Dockerfile  index.html  minikube-linux-amd64  pod-definition.yml
+solange@DESKTOP-1VNRH0G:~$ docker build -t btechitimage .
+=========================================================
+solange@DESKTOP-1VNRH0G:~/project/exam$ rm index.html
+solange@DESKTOP-1VNRH0G:~/project$ rmdir exam
+solange@DESKTOP-1VNRH0G:~/project$ ls
+solange@DESKTOP-1VNRH0G:~/project$ cd ..(to return back)
+solange@DESKTOP-1VNRH0G:~$ mkdir exam(to remove directory)
+solange@DESKTOP-1VNRH0G:~$ cd exam
+solange@DESKTOP-1VNRH0G:~/exam$ vi index.html
+solange@DESKTOP-1VNRH0G:~/exam$ vi dockerfile
+solange@DESKTOP-1VNRH0G:~/exam$ vi pod-definition.yml
+solange@DESKTOP-1VNRH0G:~/exam$ kubectl create deployment deploy-app --image=docker.io/nginx:1.22.1
+solange@DESKTOP-1VNRH0G:~/exam$ docker build -t imageform .
+solange@DESKTOP-1VNRH0G:~/exam$ kubectl apply -f pod-definition.yml
+solange@DESKTOP-1VNRH0G:~/exam$ docker tag imageform usolange/imageform
+solange@DESKTOP-1VNRH0G:~/exam$ docker push usolange/imageform
+solange@DESKTOP-1VNRH0G:~/exam$ docker login
+solange@DESKTOP-1VNRH0G:~/exam$ vi pod-definition.yml
+solange@DESKTOP-1VNRH0G:~/exam$ kubectl apply -f pod-definition.yml
+solange@DESKTOP-1VNRH0G:~/exam$ kubectl expose deployment/deploy-app --type=NodePort --port 80
+solange@DESKTOP-1VNRH0G:~/exam$ kubectl port-forward service/deploy-app --address=0.0.0.0 8083:80
+

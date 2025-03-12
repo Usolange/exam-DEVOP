@@ -1,0 +1,116 @@
+kubernate password:123=su - Solange 12345
+mkdir simple2=project
+cd simple2
+vi index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Your email.." required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write something.." style="height:200px" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
+
+kubectl create deployment test-app --image=docker.io/nginx:1.22.1
+kubectl get deployments
+kubectl describe deployment/test-app
+kubectl get pods
+kubectl scale deployments/test-app --replicas=4
+vi Dockerfile
+mv DockerFile Dockerfile
+docker build -t btechitform .=btechitimage
+
+
+docker login
+Username: assinathmdusengimana@gmail.com
+Password:123456789=SOLANGE2000
+docker tag btechitform asnath2024/btechitform
+docker push asnath2024/btechitform
+vi pod-definition.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-app
+  template:
+    metadata:
+      labels:
+        app: test-app
+    spec:
+      containers:
+      - name: nginx
+        image: asnath2024/btechitform:latest
+        ports:
+        - containerPort: 80
+esc:wq
+
+kubectl apply -f pod-definition.yml
+kubectl expose deployment/test-app --type=NodePort --port 80
+kubectl get services
+kubectl port-forward service/test-app --address=0.0.0.0 8081:80
